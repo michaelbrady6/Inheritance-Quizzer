@@ -7,6 +7,8 @@ public class Runner
 		static int random;
 		static String ans;
 		static int count = 0;
+		static int i = 0;
+		static ArrayList<Integer> missed = new ArrayList<Integer>();
 		public static void main(String[] args)
 			{
 				Scanner input = new Scanner(System.in);
@@ -25,24 +27,13 @@ public class Runner
 				questions.add("f.animalSound()");
 				questions.add("f.animalNoise()");
 				questions.add("f.foxNoise()");
-				for (int i = 0; i < num; i++)
+				
+				for (i = 0; i < num; i++)
 					{
 						random = (int) (Math.random() * 4 + 1);
 						question(1, "Animal a = new Animal()");
 						question(2, "Animal a = new Fox()");
 						question(3, "Fox f = new Fox()");
-//						if (random == 1)
-//							{
-//								System.out.println("Animal a = new Animal()");
-//							}
-//						if (random == 2)
-//							{
-//								System.out.println("Animal a = new Fox()");
-//							}
-//						if (random == 3)
-//							{
-//								System.out.println("Fox f = new Fox()");
-//							}
 						if (random < 4)
 							{
 								if (random <= 2)
@@ -88,10 +79,16 @@ public class Runner
 									{
 										System.out.println("That is incorrect");
 										System.out.println("This would not work");
+										missed.add(i + 1);
 									}
 							}
 						}
 						System.out.println("You got " + count + " out of " + num);
+						System.out.println("The questions you missed were:");
+						for(Integer p: missed)
+							{
+								System.out.println(p);
+							}
 					}
 		public static void check(int num, String answer, String print)
 		{
@@ -106,6 +103,7 @@ public class Runner
 						{
 							System.out.println("That is incorrect");
 							System.out.println("The answer is: " + print);
+							missed.add(i + 1);
 						}
 				}
 		}
