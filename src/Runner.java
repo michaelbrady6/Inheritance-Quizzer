@@ -25,22 +25,24 @@ public class Runner
 				questions.add("f.animalSound()");
 				questions.add("f.animalNoise()");
 				questions.add("f.foxNoise()");
-				int count = 0;
 				for (int i = 0; i < num; i++)
 					{
 						random = (int) (Math.random() * 4 + 1);
-						if (random == 1)
-							{
-								System.out.println("Animal a = new Animal()");
-							}
-						if (random == 2)
-							{
-								System.out.println("Animal a = new Fox()");
-							}
-						if (random == 3)
-							{
-								System.out.println("Fox f = new Fox()");
-							}
+						question(1, "Animal a = new Animal()");
+						question(2, "Animal a = new Fox()");
+						question(3, "Fox f = new Fox()");
+//						if (random == 1)
+//							{
+//								System.out.println("Animal a = new Animal()");
+//							}
+//						if (random == 2)
+//							{
+//								System.out.println("Animal a = new Fox()");
+//							}
+//						if (random == 3)
+//							{
+//								System.out.println("Fox f = new Fox()");
+//							}
 						if (random < 4)
 							{
 								if (random <= 2)
@@ -51,7 +53,6 @@ public class Runner
 									{
 										random = (int) (Math.random() * 3 + 3);
 									}
-								// Collections.shuffle(answers);
 								System.out.println("What would print out if " + questions.get(random) + " is called?");
 								System.out.println("a. " + answers.get(0));
 								System.out.println("b. " + answers.get(1));
@@ -60,125 +61,38 @@ public class Runner
 								System.out.println("e. " + answers.get(4));
 								Scanner input2 = new Scanner(System.in);
 								ans = input2.nextLine().toLowerCase();
-								int a = 0;
-								switch (ans)
-									{
-									case "a":
-										a = 0;
-									case "b":
-										a = 1;
-									case "c":
-										a = 2;
-									case "d":
-										a = 3;
-									case "e":
-										a = 4;
-									}
 								check(0, "a", "Woof");
-//								if (random == 0)
-//									{
-//										if (ans.toLowerCase().equals("a"))
-//											{
-//												System.out.println("That is correct");
-//												count++;
-//											} 
-//										else
-//											{
-//												System.out.println("That is incorrect");
-//												System.out.println("The answer is Woof");
-//											}
-//									}
-								if (random == 1)
+								check(1, "b", "Meow");
+								check(2, "e", "This would not work");
+								check(3, "d", "Tchoff-tchoff-tchoffo-tchoffo-tchoff!");
+								check(4, "b", "Meow");
+								check(5, "c", "Wa-pa-pa-pa-pa-pa-pow!");
+							}
+						else
+							{
+								System.out.println("Fox f = new Animal()");
+								System.out.println("What would print out if " + questions.get(random) + " is called?");
+								System.out.println("a. " + answers.get(0));
+								System.out.println("b. " + answers.get(1));
+								System.out.println("c. " + answers.get(2));
+								System.out.println("d. " + answers.get(3));
+								System.out.println("e. " + answers.get(4));
+								Scanner input2 = new Scanner(System.in);
+								String an = input2.nextLine();
+								if (an.equals("e"))
 									{
-										if (ans.toLowerCase().equals("b"))
-											{
-												System.out.println("That is correct");
-												count++;
-											} 
-										else
-											{
-												System.out.println("That is incorrect");
-												System.out.println("The answer is Meow");
-											}
-									}
-								if (random == 2)
-									{
-										if (ans.toLowerCase().equals("e"))
-											{
-												System.out.println("That is correct");
-												count++;
-											}
-										else
-											{
-												System.out.println("That is incorrect");
-												System.out.println("This would not work");
-											}
-									}
-								if (random == 3)
-									{
-										if (ans.toLowerCase().equals("e"))
-											{
-												System.out.println("That is correct");
-												count++;
-											} 
-										else
-											{
-												System.out.println("That is incorrect");
-												System.out.println("This would not work");
-											}
-									}
-								if (random == 4)
-									{
-										if (ans.toLowerCase().equals("d"))
-											{
-												System.out.println("That is correct");
-												count++;
-											} 
-										else
-											{
-												System.out.println("That is incorrect");
-												System.out.println("The answer is Tchoff-tchoff-tchoffo-tchoffo-tchoff!");
-											}
-									}
-								if (random == 5)
-									{
-										if (ans.toLowerCase().equals("b"))
-											{
-												System.out.println("That is correct");
-												count++;
-											} 
-										else
-											{
-												System.out.println("That is incorrect");
-												System.out.println("The answer is Wa-pa-pa-pa-pa-pa-pow!");
-											}
+										System.out.println("That is correct");
+										count++;
 									}
 								else
 									{
-										System.out.println("Fox f = new Animal()");
-										System.out.println("What would print out if " + questions.get(random) + " is called?");
-										System.out.println("a. " + answers.get(0));
-										System.out.println("b. " + answers.get(1));
-										System.out.println("c. " + answers.get(2));
-										System.out.println("d. " + answers.get(3));
-										System.out.println("e. " + answers.get(4));
-										String an = input2.nextLine().toLowerCase();
-										if (an.equals("e"))
-											{
-												System.out.println("That is correct");
-												count++;
-											}
-										else
-											{
-												System.out.println("That is incorrect");
-												System.out.println("This would not work");
-											}
+										System.out.println("That is incorrect");
+										System.out.println("This would not work");
 									}
-								// if (answers.get(a).equals())
 							}
+						}
+						System.out.println("You got " + count + " out of " + num);
 					}
-				System.out.println("You got " + count + " out of " + num);
-			}
 		public static void check(int num, String answer, String print)
 		{
 			if (random == num)
@@ -191,8 +105,15 @@ public class Runner
 					else
 						{
 							System.out.println("That is incorrect");
-							System.out.println("The answer is " + print);
+							System.out.println("The answer is: " + print);
 						}
+				}
+		}
+		public static void question(int a, String s)
+		{
+			if (random == a)
+				{
+					System.out.println(s);
 				}
 		}
 	}
